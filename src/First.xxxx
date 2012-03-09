@@ -1,0 +1,47 @@
+import java.io.*
+import java.util.*
+
+def list_of_files_which_must_be_in_classpath = [
+    '$CLASSPATH_PREFIX',
+    '"$BASEDIR"/etc',
+    '"$REPO"/MAPPASM-145-test-1.0-SNAPSHOT.jar',
+    '"$REPO"/tika-parsers-0.7.jar',
+    '"$REPO"/tika-core-0.7.jar',
+    '"$REPO"/commons-compress-1.0.jar',
+    '"$REPO"/pdfbox-1.1.0.jar',
+    '"$REPO"/fontbox-1.1.0.jar',
+    '"$REPO"/jempbox-1.1.0.jar',
+    '"$REPO"/bcmail-jdk15-1.45.jar',
+    '"$REPO"/geronimo-stax-api_1.0_spec-1.0.1.jar',
+    '"$REPO"/bcprov-jdk15-1.45.jar',
+    '"$REPO"/poi-3.6.jar',
+    '"$REPO"/poi-scratchpad-3.6.jar',
+    '"$REPO"/poi-ooxml-3.6.jar',
+    '"$REPO"/poi-ooxml-schemas-3.6.jar',
+    '"$REPO"/xmlbeans-2.3.0.jar',
+    '"$REPO"/dom4j-1.6.1.jar',
+    '"$REPO"/xml-apis-1.0.b2.jar',
+    '"$REPO"/commons-logging-1.1.1.jar',
+    '"$REPO"/tagsoup-1.2.jar',
+    '"$REPO"/asm-3.1.jar',
+    '"$REPO"/log4j-1.2.14.jar',
+    '"$REPO"/metadata-extractor-2.4.0-beta-1.jar',
+];
+
+def line = 'CLASSPATH=$CLASSPATH_PREFIX:"$BASEDIR"/etc:"$REPO"/MAPPASM-145-test-1.0-SNAPSHOT.jar:"$REPO"/tika-parsers-0.7.jar:"$REPO"/tika-core-0.7.jar:"$REPO"/commons-compress-1.0.jar:"$REPO"/pdfbox-1.1.0.jar:"$REPO"/fontbox-1.1.0.jar:"$REPO"/jempbox-1.1.0.jar:"$REPO"/bcmail-jdk15-1.45.jar:"$REPO"/bcprov-jdk15-1.45.jar:"$REPO"/poi-3.6.jar:"$REPO"/poi-scratchpad-3.6.jar:"$REPO"/poi-ooxml-3.6.jar:"$REPO"/poi-ooxml-schemas-3.6.jar:"$REPO"/xmlbeans-2.3.0.jar:"$REPO"/dom4j-1.6.1.jar:"$REPO"/xml-apis-1.0.b2.jar:"$REPO"/geronimo-stax-api_1.0_spec-1.0.1.jar:"$REPO"/commons-logging-1.1.1.jar:"$REPO"/tagsoup-1.2.jar:"$REPO"/asm-3.1.jar:"$REPO"/log4j-1.2.14.jar:"$REPO"/metadata-extractor-2.4.0-beta-1.jar'
+
+def elements_in_line = line.substring (10 ).split(":")
+
+elements_in_line.sort()
+
+elements_in_line.eachWithIndex {
+    element, number -> print "Element[" + number + "]" +  element + "\n";
+}
+
+elements_in_line.eachWithIndex {
+    element, number -> if (!list_of_files_which_must_be_in_classpath.contains(element)) {
+        print "Not found." + element + "\n"
+    } 
+}
+
+return 1
