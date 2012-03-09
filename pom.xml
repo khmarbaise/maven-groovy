@@ -7,12 +7,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.soebes.groovy</groupId>
-  <artifactId>first</artifactId>
+  <artifactId>first-groovy</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <packaging>jar</packaging>
 
   <name>Test Groovy Scripting</name>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.gmaven.runtime</groupId>
+      <artifactId>gmaven-runtime-1.8</artifactId>
+      <version>1.4</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <pluginManagement>
@@ -102,6 +111,11 @@
         <artifactId>gmaven-plugin</artifactId>
         <version>1.3</version>
         <dependencies>
+          <dependency>
+            <groupId>org.codehaus.gmaven.runtime</groupId>
+            <artifactId>gmaven-runtime-1.8</artifactId>
+            <version>1.4</version>
+          </dependency>
           <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy</artifactId>
