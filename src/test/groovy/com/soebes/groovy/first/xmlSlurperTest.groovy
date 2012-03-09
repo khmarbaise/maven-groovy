@@ -13,3 +13,4 @@ for (module in pom.project.modules) {
     println "${module.@name}"
 }
 
+println "Hello here i am."
