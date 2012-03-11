@@ -22,7 +22,16 @@ class xmlSlurperTest extends GroovyTestCase {
         //println "Hello here i am."
 		
 	println pom.size()
+	pom.childNodes().each {
+	    item -> println "Item:" +item.name()
+	}
+	
+	def version = pom.childNodes().find {
+	    item -> item.name().equals("version")
+	}
 	println pom.@project.size()
+	
+	println "Node: Version:" + version.text()
     }
 
 }
