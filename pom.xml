@@ -22,9 +22,15 @@
   <dependencies>
     <dependency>
       <groupId>org.codehaus.gmaven.runtime</groupId>
-      <artifactId>gmaven-runtime-1.8</artifactId>
-      <version>1.4</version>
+      <artifactId>gmaven-runtime-2.0</artifactId>
+      <version>1.5</version>
     </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -101,24 +107,24 @@
           <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-eclipse-compiler</artifactId>
-            <version>2.6.0-01</version>
+            <version>2.7.0-01</version>
           </dependency>
         </dependencies>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.12</version>
+        <version>2.13</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.gmaven</groupId>
         <artifactId>gmaven-plugin</artifactId>
-        <version>1.4</version>
+        <version>1.5</version>
         <dependencies>
           <dependency>
             <groupId>org.codehaus.gmaven.runtime</groupId>
-            <artifactId>gmaven-runtime-1.8</artifactId>
-            <version>1.4</version>
+            <artifactId>gmaven-runtime-2.0</artifactId>
+            <version>1.5</version>
           </dependency>
           <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -131,10 +137,15 @@
           <verbose>true</verbose>
           <stacktrace>true</stacktrace>
           <defaultScriptExtension>.groovy</defaultScriptExtension>
+          <providerSelection>2.0</providerSelection>
         </configuration>
         <executions>
           <execution>
             <goals>
+              <goal>testCompile</goal>
+              <goal>generateStubs</goal>
+              <goal>compile</goal>
+              <goal>generateTestStubs</goal>
               <goal>testCompile</goal>
             </goals>
           </execution>
