@@ -10,8 +10,6 @@
   <artifactId>first-groovy</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <packaging>jar</packaging>
-
   <name>Test Groovy Scripting</name>
 
   <properties>
@@ -30,7 +28,16 @@
       <artifactId>groovy-all</artifactId>
       <version>2.0.0</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.8.7</version>
+    </dependency>
+      <dependency>
+        <groupId>org.easytesting</groupId>
+        <artifactId>fest-assert</artifactId>
+        <version>1.4</version>
+      </dependency>
   </dependencies>
 
   <build>
@@ -38,7 +45,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.1</version>
         <configuration>
           <compilerId>groovy-eclipse-compiler</compilerId>
           <verbose>true</verbose>
@@ -47,14 +54,19 @@
           <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-eclipse-compiler</artifactId>
-            <version>2.7.0-01</version>
+            <version>2.8.0-01</version>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-batch</artifactId>
+            <version>2.0.7-03</version>
           </dependency>
         </dependencies>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.13</version>
+        <version>2.16</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.gmaven</groupId>
